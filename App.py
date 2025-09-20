@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt
 #Cargamos el modelo
 import pickle
 filename = 'modelo-reg.pkl'
-model_Tree, model_rf,model_Knn, model_NN, min_max_scaler, variables = pickle.load(open(filename, 'rb'))
+model_Tree,model_Knn, model_NN, modelSVR, min_max_scaler, variables = pickle.load(open(filename, 'rb'))
 
 #Cargamos los datos futuros
 #data = pd.read_csv("videojuegos-datosFuturos.csv")
@@ -65,7 +65,7 @@ data_preparada.head()
 """# **Predicciones**"""
 
 #Hacemos la predicción con el Tree
-Y_pred = modelo.predict(data_preparada)
+Y_pred = model_Tree.predict(data_preparada)
 print(Y_pred)
 
 data['Prediccion']=Y_pred
